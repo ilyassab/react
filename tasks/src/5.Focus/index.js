@@ -25,7 +25,7 @@ class InputFormRow extends React.Component {
     return (
       <div className="row" onClick={this.handleClick}>
         <div className="label">{label}</div>
-        <input ref={input => this.myRef = input} {...rest} />
+        <input ref={r => this.myRef = r} {...rest} />
       </div>
     );
   }

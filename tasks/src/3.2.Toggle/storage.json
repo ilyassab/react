@@ -1374,5 +1374,18 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#1e1e1e"
+    "themeBackground": "#1e1e1e",
+    "windowsState": {
+        "lastActiveWindow": {
+            "backupPath": "/home/ilyas/Downloads/new-git/react/tasks/src/3.2.Toggle/Backups/1561547669472",
+            "uiState": {
+                "mode": 1,
+                "x": 993,
+                "y": 55,
+                "width": 927,
+                "height": 1025
+            }
+        },
+        "openedWindows": []
+    }
 }

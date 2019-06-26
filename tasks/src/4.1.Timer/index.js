@@ -42,19 +42,31 @@ class TimeDisplay extends React.Component {
     };
   }
 
+
+handlerTime = () => {
+  console.log('tik');
+  this.setState({
+    localTime: new Date()
+  })
+}
+
+componentDidMount() {
+  this.timerId = setInterval (this.handlerTime, 1000);
+}
+
+
   render() {
     return (
       <div className="time">{this.state.localTime.toLocaleTimeString()}</div>
     );
   }
 
-  componentDidMount() {
-    return (setInterval(
-      this.setState({
-        localTime: new Date()
-      }), 1000) );
+  componentWillUnmount(){
+    clearInterval(this.timerId);
   }
+
 }
+
 
 ReactDom.render(<Timer />, document.getElementById('app'));
 
