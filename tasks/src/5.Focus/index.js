@@ -17,6 +17,7 @@ import './styles.css';
 class InputFormRow extends React.Component {
   constructor(props) {
     super(props);
+    this.myRef = null;
   }
 
   render() {
@@ -24,12 +25,14 @@ class InputFormRow extends React.Component {
     return (
       <div className="row" onClick={this.handleClick}>
         <div className="label">{label}</div>
-        <input {...rest} />
+        <input ref={input => this.myRef = input} {...rest} />
       </div>
     );
   }
 
-  handleClick = () => {};
+  handleClick = () => {
+    this.myRef.focus();
+  };
 }
 
 InputFormRow.propTypes = {
@@ -37,7 +40,7 @@ InputFormRow.propTypes = {
 };
 
 ReactDom.render(
-  <div className="form">
+<div className="form">
     <form>
       <InputFormRow label="Фамилия" type="text" defaultValue="Иванов" />
       <InputFormRow label="Имя" type="text" defaultValue="Иван" />
