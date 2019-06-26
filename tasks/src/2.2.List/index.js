@@ -29,6 +29,17 @@ const posts = [
   }
 ];
 
+const renderedPosts = posts.map((item,i) =>
+      <div key={item.author} className="post">
+        <div className="postHeader">
+          <span  className = "postAuthor"> {item.author} </span>
+          <br />
+          <span className="postTime">{item.time}</span>
+          </div>
+          <div className="postMessage">{item.message}</div>
+       </div>
+    );
+
 function renderPost(post) {
   return (
     <div className="post">
@@ -43,11 +54,11 @@ function renderPost(post) {
 }
 
 function renderAuthors(posts) {
-  return (
-    <div className="authors">
-      <span>{posts[0].author}</span>
-      <span>{posts[1].author}</span>
-      <span>{posts[2].author}</span>
+  const renderedAuthors = [];
+  for (var i=0;i<3;i++){
+    renderedAuthors[i] = <span key={posts[i].author} > {posts[i].author} </span>;
+  }
+  return (<div className="authors"> {renderedAuthors}
     </div>
   );
 }
@@ -55,9 +66,7 @@ function renderAuthors(posts) {
 ReactDom.render(
   <div className="page">
     <div className="posts">
-      {renderPost(posts[0])}
-      {renderPost(posts[1])}
-      {renderPost(posts[2])}
+    {renderedPosts}
     </div>
     {renderAuthors(posts)}
   </div>,

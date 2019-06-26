@@ -18,14 +18,15 @@ import './styles.css';
 function renderPosts(posts) {
   //<div className="emptyPosts">Нет откликов</div>
   //<div className="singlePost">Единственный отклик</div>
-  return <div className="posts">Отклики в количестве {posts.length}</div>;
+  return <div className={posts.length===0 ? "emptyPosts" : posts.length===1 ? "singlePost" : "posts"}>
+  {posts.length===0 ? "Нет откликов" : posts.length===1 ? "Единственный отклик" : "Отклики в количестве " + posts.length}</div>;
 }
 
 function renderLot(name, description, tags) {
   return (
     <div className="lot">
-      <div className="lotName">{name}</div>
-      <div className="lotDescription">{description}</div>
+      <div className="lotName">{name ? name : "<Неизвестный предмет>"}</div>
+      {description ? <div className="lotDescription"> {description} </div> : null}
       {renderTags(tags)}
     </div>
   );
@@ -33,7 +34,7 @@ function renderLot(name, description, tags) {
 
 function renderTags(tags) {
   const content = tags.join(', ');
-  return <div className="lotTags">{content}</div>;
+  return tags ? <div className="lotTags">{content}</div> : null;
 }
 
 ReactDom.render(
