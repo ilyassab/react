@@ -32,7 +32,7 @@ class Toggle extends React.Component {
 
   handleClick = () => {
     this.setState({ 
-      checked: this.state.checked ? false : true
+      checked: !this.state.checked
   });
   this.props.onChange(!this.state.checked);
 }
