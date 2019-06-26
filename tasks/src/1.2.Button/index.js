@@ -11,7 +11,7 @@ ReactDom.render(
   <div className="root">
     <div className="form">
       <div style={{ marginBottom: '10px' }}>Нажми отправить</div>
-      <input type="button" className="button" value="Отправить" />
+      <input type="button" className="button" onClick={() => alert("Отправлено")} value="Отправить" />
     </div>
   </div>,
   document.getElementById('app')
